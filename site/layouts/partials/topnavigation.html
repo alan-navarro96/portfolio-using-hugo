@@ -1,23 +1,16 @@
 <div class="row">
-  <div class="col-md-12 footer-title">
-    <h2>
-      {{ with .Site.Title }}
-      <a href=""> {{ . }} </a>
+  <div class="col-sm-6">
+    <div class="categories-block">
+      <a href="/" class="track-categories">Home</a>
+      {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+      <a href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}">{{ $name }}</a>
       {{ end }}
-    </h2>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-12 footer-menu">
-    <p class="row content-summary"> 
-      © 2017 Alan Navarro <br>
-      Powered by Hugo
-    </p>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-12">
-    <div class="social-media-block-footer">
+
+  <div class="col-sm-6">
+    <div class="social-media-block">
+
       {{ with .Site.Params.social.facebook }}
       <a href="{{ . }}" data-animate-hover="pulse" class="external facebook">
         <i class="fa fa-facebook"></i>
